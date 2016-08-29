@@ -1,6 +1,7 @@
 const React = require('react');
 const SideMenu = require('react-native-side-menu');
 const Menu = require('./Home');
+import Map from './Map.ios.js'
 
 const {
   StyleSheet,
@@ -90,19 +91,7 @@ module.exports = class gorillabus extends Component {
         isOpen={this.state.isOpen}
         onChange={(isOpen) => this.updateMenuState(isOpen)}>
         <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Welcome to React Native!
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit index.ios.js
-          </Text>
-          <Text style={styles.instructions}>
-            Press Cmd+R to reload,{'\n'}
-            Cmd+Control+Z for dev menu
-          </Text>
-          <Text style={styles.instructions}>
-            Current selected menu item is: {this.state.selectedItem}
-          </Text>
+          <Map />
         </View>
         <Button style={styles.button} onPress={() => this.toggle()}>
           <Image

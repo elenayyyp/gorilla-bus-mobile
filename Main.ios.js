@@ -9,6 +9,7 @@ const {
   View,
   Image,
   TouchableOpacity,
+  StatusBar
 } = require('react-native');
 const { Component } = React;
 
@@ -90,6 +91,7 @@ module.exports = class gorillabus extends Component {
         menu={menu}
         isOpen={this.state.isOpen}
         onChange={(isOpen) => this.updateMenuState(isOpen)}>
+
         <View style={styles.container}>
           <Map />
         </View>

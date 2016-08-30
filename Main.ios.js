@@ -9,6 +9,7 @@ const {
   View,
   Image,
   TouchableOpacity,
+  StatusBar
 } = require('react-native');
 const { Component } = React;
 

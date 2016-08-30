@@ -26,7 +26,7 @@ class Map extends Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5FCFF'}}>
-       	<MapView style={{height: 500, width: 300 }} region={this.state.mapRegion} annotations={this.state.annotations} />
+       	<MapView style={{height: 600, width: 400 }} region={this.state.mapRegion} annotations={this.state.annotations} />
       </View>
     );
   }

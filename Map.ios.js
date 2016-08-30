@@ -5,7 +5,7 @@ import {
    View
 } from 'react-native';
 
-
+import ShuttleInfo from './ShuttleInfo.js';
 
 class Map extends Component {
 
@@ -22,6 +22,7 @@ class Map extends Component {
         latitude: 60.965727,
         longitude: -149.136103,
       }],
+      shuttleInfo: [{placeholder: "placeholder"}]
     }
   };
 
@@ -34,11 +35,11 @@ class Map extends Component {
   // }
 
   componentDidMount(){
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        let initialPosition = JSON.stringify(position);
-        console.log('ip:', initialPosition)
-      })
+    // navigator.geolocation.getCurrentPosition(
+    //   (position) => {
+    //     let initialPosition = JSON.stringify(position);
+    //     console.log('ip:', initialPosition)
+    //   })
 
     const derp = this
     const handleResponse = this.handleResponse;
@@ -48,13 +49,16 @@ class Map extends Component {
         headers: { "Content-Type" : "applications/json" }
       }
 
-      return fetch('http://localhost:3000/shuttles/666', fetchSettings)
+      return fetch('http://localhost:3000/shuttles/', fetchSettings)
         .then((response) => {
         return response.json().then(function(res){
-          // handleResponse(res);
-          const newLoc = [{latitude: res[0].lat, longitude: res[0].lng}]
+          const newLocs = [];
+          res.map(function(shuttle){
+            newLocs.push({latitude: shuttle.lat, longitude: shuttle.lng})
+          })
           derp.setState({
-            annotations: newLoc
+            annotations: newLocs,
+            shuttleInfo: res[0]
           })
         });
       });
@@ -63,8 +67,9 @@ class Map extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5FCFF'}}>
-       	<MapView style={{height: 500, width: 300 }} region={this.state.mapRegion} annotations={this.state.annotations} />
+      <View style={{flex: 1}}>
+       	<MapView style={{height: 500, width: 300}} region={this.state.mapRegion} annotations={this.state.annotations} />
+        <ShuttleInfo style={{flex: .5}} shuttleInfo={this.state.shuttleInfo} />
       </View>
     );
   }

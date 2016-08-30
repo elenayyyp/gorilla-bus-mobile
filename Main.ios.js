@@ -1,17 +1,19 @@
-const React = require('react');
-const SideMenu = require('react-native-side-menu');
-const Menu = require('./Home');
-import Map from './Map.ios.js'
+import React, { Component } from 'react';
+import SideMenu from 'react-native-side-menu';
+import Menu from './Home';
+import Map from './Map.ios.js';
+import ViewStops from './ViewStops.ios.js';
+import SingleStop from './SingleStop.js';
 
-const {
+import {
   StyleSheet,
   Text,
   View,
   Image,
   TouchableOpacity,
+  TouchableHighlight,
   StatusBar
-} = require('react-native');
-const { Component } = React;
+} from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
+  }
 });
 
 class Button extends Component {
@@ -64,6 +66,8 @@ module.exports = class gorillabus extends Component {
   state = {
     isOpen: false,
     selectedItem: 'About',
+    selectedStop: stops[0],
+    stopsHidden: true
   };
 
   toggle() {
@@ -83,6 +87,21 @@ module.exports = class gorillabus extends Component {
     });
   }
 
+  handleChangeStop(stop) {
+    // console.log(stop)
+    this.setState({
+      selectedStop: stop,
+      stopsHidden: true
+    })
+  }
+
+  handleCurrentStop() {
+    this.setState({
+      stopsHidden: false
+    })
+  }
+
+
   render() {
     const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
 
@@ -90,10 +109,14 @@ module.exports = class gorillabus extends Component {
       <SideMenu
         menu={menu}
         isOpen={this.state.isOpen}
-        onChange={(isOpen) => this.updateMenuState(isOpen)}>
+        onChange={isOpen => this.updateMenuState(isOpen)}>
 
         <View style={styles.container}>
-          <Map />
+          {this.state.stopsHidden ?
+            <SingleStop youPress={() => this.handleCurrentStop()} selectedStop={this.state.selectedStop} />
+             :
+            <ViewStops stops={stops} changeStop={stop => this.handleChangeStop(stop)}/>}
+          <Map style={{flex: 1}}/>
         </View>
         <Button style={styles.button} onPress={() => this.toggle()}>
           <Image
@@ -103,3 +126,21 @@ module.exports = class gorillabus extends Component {
     );
   }
 };
+
+const stops = [
+  {name: "Seward Hwy", lat: 60.941276, lng: -149.172469},
+  {name: "Forest Service", lat: 60.944388, lng: -149.169983},
+  {name: "Telemark", lat: 60.951004, lng: -149.164281},
+  {name: "Double Musky", lat: 60.965727, lng: -149.136103},
+  {name: "DownTown", lat: 60.965727, lng: -149.136103},
+  {name: "Girdwood School", lat: 60.967425, lng: -149.128348},
+  {name: "Alyeska View", lat: 60.960100, lng: -149.115815},
+  {name: "Daylodge", lat: 60.958949, lng: -149.112068},
+  {name: "Olympic Mountain Loop", lat: 60.960751, lng: -149.110305},
+  {name: "Brighton", lat: 60.962321, lng: -149.112084},
+  {name: "Tram Lot A", lat: 60.971504, lng: -149.101864},
+  {name: "Alyeska Tramway", lat: 60.970598, lng: -149.096939}
+];
+
+
+

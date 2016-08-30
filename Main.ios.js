@@ -61,6 +61,7 @@ class Button extends Component {
 }
 
 module.exports = class gorillabus extends Component {
+
   state = {
     isOpen: false,
     selectedItem: 'About',
@@ -83,6 +84,11 @@ module.exports = class gorillabus extends Component {
     });
   }
 
+
+
+
+
+
   render() {
     const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
 
@@ -91,6 +97,7 @@ module.exports = class gorillabus extends Component {
         menu={menu}
         isOpen={this.state.isOpen}
         onChange={(isOpen) => this.updateMenuState(isOpen)}>
+
         <View style={styles.container}>
           <Map />
         </View>

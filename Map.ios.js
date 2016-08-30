@@ -5,6 +5,8 @@ import {
    View
 } from 'react-native';
 
+
+
 class Map extends Component {
 
   constructor(){
@@ -22,6 +24,36 @@ class Map extends Component {
       }],
     }
   };
+
+  // handleResponse(data){
+  //   console.log(data)
+  //   const newLoc = [{latitude: data.lat, longitude: data.lng}]
+  //   this.setState({
+  //     annotations: newLoc
+  //   })
+  // }
+
+  componentDidMount(){
+    const derp = this
+    const handleResponse = this.handleResponse;
+    window.setInterval(function(){
+      const fetchSettings = {
+        method: 'GET',
+        headers: { "Content-Type" : "applications/json" }
+      }
+
+      return fetch('http://localhost:3000/shuttles/666', fetchSettings)
+        .then((response) => {
+        return response.json().then(function(res){
+          // handleResponse(res);
+          const newLoc = [{latitude: res[0].lat, longitude: res[0].lng}]
+          derp.setState({
+            annotations: newLoc
+          })
+        });
+      });
+    }, 3000)
+  }
 
   render() {
     return (

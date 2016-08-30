@@ -34,6 +34,12 @@ class Map extends Component {
   // }
 
   componentDidMount(){
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let initialPosition = JSON.stringify(position);
+        console.log('ip:', initialPosition)
+      })
+
     const derp = this
     const handleResponse = this.handleResponse;
     window.setInterval(function(){

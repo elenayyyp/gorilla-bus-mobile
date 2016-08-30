@@ -61,7 +61,6 @@ class Button extends Component {
 }
 
 module.exports = class gorillabus extends Component {
-
   state = {
     isOpen: false,
     selectedItem: 'About',
@@ -83,11 +82,6 @@ module.exports = class gorillabus extends Component {
       selectedItem: item,
     });
   }
-
-
-
-
-
 
   render() {
     const menu = <Menu onItemSelected={this.onMenuItemSelected} />;

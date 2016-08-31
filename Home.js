@@ -110,7 +110,7 @@ module.exports = class Menu extends Component {
                 <Text> X </Text>
               </TouchableHighlight>
 
-              <Text>  About us</Text>
+              <Text> About us</Text>
 
             </View>
            </View>
@@ -164,7 +164,6 @@ module.exports = class Menu extends Component {
         </View>
 
       </ScrollView>
-
 
 
     );

@@ -5,8 +5,6 @@ import {
    View
 } from 'react-native';
 
-
-
 class Map extends Component {
 
   constructor(){
@@ -25,13 +23,13 @@ class Map extends Component {
     }
   };
 
-  // handleResponse(data){
-  //   console.log(data)
-  //   const newLoc = [{latitude: data.lat, longitude: data.lng}]
-  //   this.setState({
-  //     annotations: newLoc
-  //   })
-  // }
+  handleResponse(data){
+    console.log(data)
+    const newLoc = [{latitude: data.lat, longitude: data.lng}]
+    this.setState({
+      annotations: newLoc
+    })
+  }
 
   componentDidMount(){
     const derp = this

@@ -4,7 +4,6 @@ import Menu from './Home';
 import Map from './Map.js';
 import ViewStops from './ViewStops.js';
 import SingleStop from './SingleStop.js';
-import ModalExample from './Modal.js';
 
 import {
   StyleSheet,

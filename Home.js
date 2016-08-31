@@ -49,11 +49,21 @@ module.exports = class Menu extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {modalVisible: false};
+    this.state = {
+      aboutModal: false,
+      contactModal: false,
+      helpModal: false
+    };
   }
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+  setAboutModal(visible) {
+    this.setState({aboutModal: visible});
+  }
+  setContactModal(visible) {
+    this.setState({contactModal: visible});
+  }
+  setHelpModal(visible) {
+    this.setState({helpModal: visible});
   }
 
   render() {
@@ -68,33 +78,85 @@ module.exports = class Menu extends Component {
         </View>
 
         <TouchableHighlight onPress={() => {
-          this.setModalVisible(true)
+          this.setAboutModal(true)
         }}>
-          <Text>Show Modal</Text>
+          <Text>About</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={() => {
-          this.setModalVisible(true)
+          this.setContactModal(true)
         }}>
-          <Text>Show Modal</Text>
+          <Text>Contact</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={() => {
+          this.setHelpModal(true)
+        }}>
+          <Text>Help</Text>
         </TouchableHighlight>
 
         <View style={{marginTop: 22}}>
           <Modal
             animationType={"slide"}
             transparent={false}
-            visible={this.state.modalVisible}
+            visible={this.state.aboutModal}
             onRequestClose={() => {alert("Modal has been closed.")}}
             >
            <View style={{marginTop: 22}}>
             <View>
-              <Text>Hello World!</Text>
-
               <TouchableHighlight onPress={() => {
-                this.setModalVisible(!this.state.modalVisible)
-              }}>
-                <Text>Hide Modal</Text>
+                  this.setAboutModal(!this.state.aboutModal)
+                }}>
+                <Text> X </Text>
               </TouchableHighlight>
+
+              <Text>  About us</Text>
+
+            </View>
+           </View>
+          </Modal>
+        </View>
+
+        <View style={{marginTop: 22}}>
+          <Modal
+            animationType={"slide"}
+            transparent={false}
+            visible={this.state.contactModal}
+            onRequestClose={() => {alert("Modal has been closed.")}}
+            >
+           <View style={{marginTop: 22}}>
+            <View>
+              <TouchableHighlight onPress={() => {
+                  this.setContactModal(!this.state.contactModal)
+                }}>
+                <Text> X </Text>
+              </TouchableHighlight>
+
+              <Text>  Contact Us</Text>
+
+            </View>
+           </View>
+          </Modal>
+        </View>
+
+
+
+        <View style={{marginTop: 22}}>
+          <Modal
+            animationType={"slide"}
+            transparent={false}
+            visible={this.state.helpModal}
+            onRequestClose={() => {alert("Modal has been closed.")}}
+            >
+           <View style={{marginTop: 22}}>
+            <View>
+              <TouchableHighlight onPress={() => {
+                  this.setHelpModal(!this.state.helpModal)
+                }}>
+                <Text> X </Text>
+              </TouchableHighlight>
+
+              <Text>  Help</Text>
 
             </View>
            </View>

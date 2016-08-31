@@ -11,6 +11,8 @@ import {
   Switch,
 } from 'react-native';
 
+// import Profiles from './utils/ourText';
+
 const window = Dimensions.get('window');
 const uri = 'http://pickaface.net/includes/themes/clean/img/slide2.png';
 
@@ -55,7 +57,10 @@ module.exports = class Menu extends Component {
         <TouchableHighlight onPress={() => {
           this.setAboutModal(true)
         }}>
-          <Text>About</Text>
+          <View>
+            <Text>About</Text>
+            <Text>{}</Text>
+          </View>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={() => {

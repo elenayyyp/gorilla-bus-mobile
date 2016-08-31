@@ -20,6 +20,7 @@ class ViewStops extends Component{
   render(){
     return(
       <View style={styles.container}>
+        <Text>Select a Stop</Text>
         <ListView
           dataSource={this.ds.cloneWithRows(this.props.stops)}
           renderRow={ stop => (

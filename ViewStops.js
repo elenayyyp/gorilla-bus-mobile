@@ -3,11 +3,11 @@ import {
   Text,
   ListView,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  StyleSheet
 } from 'react-native';
 
 class ViewStops extends Component{
-
   constructor(props) {
     super(props);
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -17,11 +17,9 @@ class ViewStops extends Component{
     this.props.changeStop(stop)
   }
 
-
-
   render(){
     return(
-      <View>
+      <View style={styles.container}>
         <ListView
           dataSource={this.ds.cloneWithRows(this.props.stops)}
           renderRow={ stop => (
@@ -30,7 +28,7 @@ class ViewStops extends Component{
               onPress={ () => this.selectStop(stop) }
             >
               <View>
-                <Text numberOfLines={1}>{stop.name}</Text>
+                <Text style={styles.textItems} numberOfLines={1}>{stop.name}</Text>
               </View>
             </TouchableHighlight>
           )}
@@ -40,5 +38,18 @@ class ViewStops extends Component{
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 25,
+    marginBottom: 50,
+    alignItems: 'center'
+  },
+  textItems: {
+    textAlign: 'center',
+    lineHeight: 30,
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+});
 
 export default ViewStops

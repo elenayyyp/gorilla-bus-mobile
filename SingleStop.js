@@ -7,12 +7,6 @@ import {
   Image
 } from 'react-native';
 
-const styles = StyleSheet.create({
-  element: {
-    marginTop: 15
-  }
-})
-
 class SingleStop extends Component {
   constructor(props){
     super(props)
@@ -20,15 +14,46 @@ class SingleStop extends Component {
 
   render(){
     return(
-      <TouchableHighlight onPress={this.props.youPress}>
-        <View style={styles.element}>
-          <Text>Selected Stop: {this.props.selectedStop.name}</Text>
-          <Image style={{height: 25, width: 25}} source={require('./assets/down_arrow.png')}/>
+      <TouchableHighlight
+        onPress={this.props.youPress}
+        underlayColor={'#EEE'}
+      >
+        <View style={styles.container}>
+
+        <Text style={styles.heavy}>
+          Selected Stop:
+        </Text>
+          <Text style={styles.normal}>
+            {this.props.selectedStop.name}
+          </Text>
+
+
+          <Image style={styles.icon} source={require('./assets/down_arrow.png')}/>
         </View>
       </TouchableHighlight>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 30,
+    marginBottom: 5,
+    alignItems: 'center'
+  },
+  icon: {
+    height: 28,
+    width: 28
+  },
+  heavy: {
+    fontWeight: 'bold',
+    fontSize: 18
+  },
+  normal: {
+    fontWeight: 'normal',
+    fontSize: 18
+  }
+});
 
 export default SingleStop
 

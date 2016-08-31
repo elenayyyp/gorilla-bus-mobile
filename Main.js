@@ -99,7 +99,7 @@ module.exports = class gorillabus extends Component {
             {this.state.stopsHidden ?
               <SingleStop youPress={() => this.handleCurrentStop()} selectedStop={this.state.selectedStop} />
                :
-              <ViewStops stops={stops} changeStop={stop => this.handleChangeStop(stop)}/>}
+              <ViewStops stops={stops} changeStop={stop => this.handleChangeStop(stop)} style={styles.viewstop}/>}
             <Map style={{flex: 1}}/>
           </View>
 
@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 0
   },
+
   // caption: {
   //   fontSize: 20,
   //   fontWeight: 'bold',

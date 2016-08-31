@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   normal: {
     fontWeight: 'normal',
-    fontSize: 18
+    fontSize: 18,
   }
 });
 

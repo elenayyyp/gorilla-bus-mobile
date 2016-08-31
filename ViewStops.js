@@ -40,9 +40,16 @@ class ViewStops extends Component{
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 3,
+    textAlign: 'center',
+    position: "absolute",
+    left: 75,
     marginTop: 25,
     marginBottom: 50,
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 15,
+    backgroundColor: 'rgba(255,255,255,0.8)'
   },
   textItems: {
     textAlign: 'center',

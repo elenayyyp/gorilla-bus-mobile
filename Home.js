@@ -1,5 +1,5 @@
-const React = require('react');
-const {
+import React, { Component } from 'react';
+import {
   Dimensions,
   StyleSheet,
   ScrollView,
@@ -9,41 +9,10 @@ const {
   TouchableHighlight,
   Modal,
   Switch,
-} = require('react-native');
-const { Component } = React;
+} from 'react-native';
 
 const window = Dimensions.get('window');
 const uri = 'http://pickaface.net/includes/themes/clean/img/slide2.png';
-
-const styles = StyleSheet.create({
-  menu: {
-    flex: 1,
-    width: window.width,
-    height: window.height,
-    backgroundColor: 'gray',
-    padding: 20,
-  },
-  avatarContainer: {
-    marginBottom: 20,
-    marginTop: 20,
-  },
-  avatar: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    flex: 1,
-  },
-  name: {
-    position: 'absolute',
-    left: 70,
-    top: 20,
-  },
-  item: {
-    fontSize: 14,
-    fontWeight: '300',
-    paddingTop: 5,
-  },
-});
 
 module.exports = class Menu extends Component {
 
@@ -71,10 +40,16 @@ module.exports = class Menu extends Component {
       <ScrollView scrollsToTop={false} style={styles.menu}>
 
         <View style={styles.avatarContainer}>
-          <Image
-            style={styles.avatar}
-            source={{ uri, }}/>
-          <Text style={styles.name}>GORILLA BUS</Text>
+          <View>
+            <View>
+              <Text style={styles.name}>Glacier City Transit</Text>
+              <Text style={styles.name}>Shuttle Tracker</Text>
+            </View>
+
+            <Image
+              style={styles.avatar}
+              source={require('./assets/girdwood_pic.jpg')}/>
+          </View>
         </View>
 
         <TouchableHighlight onPress={() => {
@@ -165,6 +140,38 @@ module.exports = class Menu extends Component {
 
       </ScrollView>
 
+
     );
   }
 };
+
+ const styles = StyleSheet.create({
+    menu: {
+      flex: 1,
+      width: window.width,
+      height: window.height,
+      backgroundColor: 'gray',
+      padding: 20,
+    },
+    avatarContainer: {
+      marginBottom: 20,
+      marginTop: 20,
+    },
+    avatar: {
+      width: 75,
+      height: 48,
+      borderRadius: 3,
+      flex: 1,
+    },
+    name: {
+      marginBottom: 10,
+      fontWeight: 'bold',
+      fontSize: 18,
+    },
+    item: {
+      fontSize: 14,
+      fontWeight: '300',
+      paddingTop: 5,
+    },
+  });
+

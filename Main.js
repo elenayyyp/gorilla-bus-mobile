@@ -4,6 +4,7 @@ import Menu from './Home';
 import Map from './Map.js';
 import ViewStops from './ViewStops.js';
 import SingleStop from './SingleStop.js';
+import ModalExample from './Modal.ios.js';
 
 import {
   StyleSheet,
@@ -98,6 +99,7 @@ module.exports = class gorillabus extends Component {
               <ViewStops stops={stops} changeStop={stop => this.handleChangeStop(stop)}/>}
             <Map style={{flex: 1}}/>
           </View>
+          <ModalExample />
 
           <Button style={styles.button} onPress={() => this.toggle()}>
             <Image
@@ -171,7 +173,3 @@ const styles = StyleSheet.create({
     //     </Button>
     //   </SideMenu>
     // );
-
-
-
-

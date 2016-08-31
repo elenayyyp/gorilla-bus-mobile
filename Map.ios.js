@@ -8,6 +8,7 @@ import {
 class Map extends Component {
 
   constructor(){
+    console.log('were here');
     super()
     this.state = {
       mapRegion: {
@@ -55,8 +56,8 @@ class Map extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5FCFF'}}>
-       	<MapView style={{height: 600, width: 400 }} region={this.state.mapRegion} annotations={this.state.annotations} />
+      <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5FCFF'}}>
+       	<MapView style={} region={this.state.mapRegion} annotations={this.state.annotations} />
       </View>
     );
   }

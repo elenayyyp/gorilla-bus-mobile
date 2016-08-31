@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {
-   MapView,
-   StyleSheet,
-   View
+  Dimensions,
+  MapView,
+  StyleSheet,
+  View
 } from 'react-native';
 
 import ShuttleInfo from './ShuttleInfo.js';
@@ -62,7 +63,7 @@ class Map extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-       	<MapView style={{height: 450, width: 300}} region={this.state.mapRegion} annotations={this.state.annotations} />
+       	<MapView style={{width: Dimensions.get('window').width - 40, height: 450}} region={this.state.mapRegion} annotations={this.state.annotations} />
         <ShuttleInfo shuttleInfo={this.state.shuttleInfo} />
       </View>
     );

@@ -21,14 +21,11 @@ class SingleStop extends Component {
         <View style={styles.container}>
 
         <Text style={styles.heavy}>
-          Selected Stop:
+          &#x02720; Choose Your Stop
         </Text>
           <Text style={styles.normal}>
             {this.props.selectedStop.name}
           </Text>
-
-
-          <Image style={styles.icon} source={require('./assets/down_arrow.png')}/>
         </View>
       </TouchableHighlight>
     )
@@ -92,4 +89,3 @@ export default SingleStop
 // }
 
 // export default SingleStop
-

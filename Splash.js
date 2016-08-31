@@ -3,8 +3,8 @@ import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
 class Splash extends Component {
 
-  buttonPressed(){
-    console.log('button pressed');
+  buttonPressed(type){
+    console.log(`${type} button pressed`);
   }
 
   render(){
@@ -12,12 +12,20 @@ class Splash extends Component {
       <View>
         <TouchableHighlight
           style={styles.button}
-          onPress={() => this.buttonPressed()}>
-        <View>
-          <Text>Driver</Text>
-        </View>
-
+          onPress={(driver) => this.buttonPressed(driver)}>
+            <View>
+              <Text>Driver</Text>
+            </View>
         </TouchableHighlight>
+
+        <TouchableHighlight
+          style={styles.button}
+          onPress={(passenger) => this.buttonPressed(passenger)}>
+            <View>
+              <Text>Passenger</Text>
+            </View>
+        </TouchableHighlight>
+
       </View>
     )
   }

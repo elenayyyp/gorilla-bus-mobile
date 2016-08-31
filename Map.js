@@ -43,7 +43,6 @@ class Map extends Component {
           const newLocs = [];
           res.map((shuttle, idx) => {
             let color = ['#155f7c', '#ff3b30', '#c969e0'][idx];
-            console.log('color:', color)
             newLocs.push({
               latitude: shuttle.lat,
               longitude: shuttle.lng,

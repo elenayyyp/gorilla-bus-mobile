@@ -6,6 +6,9 @@ const {
   View,
   Image,
   Text,
+  TouchableHighlight,
+  Modal,
+  Switch,
 } = require('react-native');
 const { Component } = React;
 
@@ -43,13 +46,20 @@ const styles = StyleSheet.create({
 });
 
 module.exports = class Menu extends Component {
-  static propTypes = {
-    onItemSelected: React.PropTypes.func.isRequired,
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {modalVisible: false};
+  }
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
 
   render() {
     return (
       <ScrollView scrollsToTop={false} style={styles.menu}>
+
         <View style={styles.avatarContainer}>
           <Image
             style={styles.avatar}
@@ -57,18 +67,44 @@ module.exports = class Menu extends Component {
           <Text style={styles.name}>GORILLA BUS</Text>
         </View>
 
-        <Text
-          onPress={() => this.props.onItemSelected('About')}
-          style={styles.item}>
-          About
-        </Text>
+        <TouchableHighlight onPress={() => {
+          this.setModalVisible(true)
+        }}>
+          <Text>Show Modal</Text>
+        </TouchableHighlight>
 
-        <Text
-          onPress={() => this.props.onItemSelected('Contacts')}
-          style={styles.item}>
-          Contact Us
-        </Text>
+        <TouchableHighlight onPress={() => {
+          this.setModalVisible(true)
+        }}>
+          <Text>Show Modal</Text>
+        </TouchableHighlight>
+
+        <View style={{marginTop: 22}}>
+          <Modal
+            animationType={"slide"}
+            transparent={false}
+            visible={this.state.modalVisible}
+            onRequestClose={() => {alert("Modal has been closed.")}}
+            >
+           <View style={{marginTop: 22}}>
+            <View>
+              <Text>Hello World!</Text>
+
+              <TouchableHighlight onPress={() => {
+                this.setModalVisible(!this.state.modalVisible)
+              }}>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+
+            </View>
+           </View>
+          </Modal>
+        </View>
+
       </ScrollView>
+
+
+
     );
   }
 };

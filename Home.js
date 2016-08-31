@@ -179,4 +179,3 @@ module.exports = class Menu extends Component {
       paddingTop: 5,
     },
   });
-

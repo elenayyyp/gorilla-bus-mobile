@@ -9,9 +9,10 @@ import {
 
 const styles = StyleSheet.create({
   content: {
-    marginTop: 10,
+    top: -20,
+    marginTop: 5,
     backgroundColor: 'white',
-    borderBottomLeftRadius: 7,
+    borderBottomLeftRadius: 0,
     shadowColor: "#000000",
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -73,6 +74,7 @@ class ShuttleInfo extends Component {
               ETA: {' '}
           </Text>
           <Text style={styles.normal}>
+            {this.props.eta} mins
           </Text>
         </Text>
 

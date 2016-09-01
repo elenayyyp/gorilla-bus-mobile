@@ -4,6 +4,8 @@ import Menu from './Home';
 import Map from './Map.js';
 import ViewStops from './ViewStops.js';
 import SingleStop from './SingleStop.js';
+import axios from 'axios';
+import eta from './ETA.js';
 
 import {
   StyleSheet,
@@ -40,10 +42,33 @@ class Button extends Component {
 module.exports = class gorillabus extends Component {
   state = {
     isOpen: false,
+    lat: 0,
+    lng: 0,
     selectedItem: 'About',
     selectedStop: stops[0],
-    stopsHidden: false
+    stopsHidden: false,
+    eta: 'Calc..',
+    toSeward: ''
   };
+
+  handleRefresh(){
+    const App = this
+    axios.get('http://localhost:3000/shuttles/666').then(function(response){
+      App.setState({
+        lat: response.data[0].lat,
+        lng: response.data[0].lng,
+        toSeward: response.data[0].toSeward
+      })
+    }).then(function(res){
+      console.log(App.state)
+      if (App.state.lat !== 0){
+        App.setState({
+          eta: eta(App.state)
+        })
+      }
+      // console.log(res);
+    })
+  }
 
   toggle() {
     this.setState({
@@ -93,18 +118,15 @@ module.exports = class gorillabus extends Component {
           isOpen={this.state.isOpen}
           onChange={isOpen => this.updateMenuState(isOpen)}
           >
-          <Image source={require('./assets/wp.png')} style={styles.backgroundImage} style={styles.backgroundImage}/>
           <View style={styles.container}>
 
-              <Text style={styles.header}>Gorilla Bus</Text>
-              <SingleStop youPress={() => this.handleCurrentStop()} selectedStop={this.state.selectedStop} />
-              {this.state.stopsHidden ?
+            <Text style={styles.header}>Gorilla Bus</Text>
+            <SingleStop youPress={() => this.handleCurrentStop()} selectedStop={this.state.selectedStop} handleRefresh={()=> this.handleRefresh()}/>
+            {this.state.stopsHidden ?
               <ViewStops stops={stops} changeStop={stop => this.handleChangeStop(stop)} style={styles.viewstop}/>
               : null}
-            <Map style={{flex: 1}}/>
+            <Map style={{flex: 1}} eta={this.state.eta}/>
           </View>
-
-
           <Button style={styles.burger} onPress={() => this.toggle()}>
             <Image
               source={require('./assets/menu-alt-512.png')} style={{width: 32, height: 32}}/>
@@ -165,18 +187,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 0
   },
-  viewstop: {
-    // position: 'absolute',
-    // justifyContent: 'center',
-    // marginLeft: 200,
-    // marginTop: 100
-
-  },
-  // caption: {
-  //   fontSize: 20,
-  //   fontWeight: 'bold',
-  //   alignItems: 'center',
-  // },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -184,34 +194,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
 
-  // welcome: {
-  //   fontSize: 20,
-  //   textAlign: 'center',
-  //   margin: 10,
-  // },
-  // instructions: {
-  //   textAlign: 'center',
-  //   color: '#333333',
-  //   marginBottom: 5,
-  // }
 });
-
-
-    // return (
-    //   <SideMenu
-    //     menu={menu}
-    //     isOpen={this.state.isOpen}
-    //     onChange={isOpen => this.updateMenuState(isOpen)}>
-
-    //     <View style={styles.container}>
-    //       <SingleStop youPress={() => this.goToStopsPage()} selectedStop={this.state.selectedStop} />
-
-    //       <Map style={{flex: 1}}/>
-    //     </View>
-
-    //     <Button style={styles.button} onPress={() => this.toggle()}>
-    //       <Image
-    //         source={require('./assets/menu-alt-512.png')} style={{width: 32, height: 32}} />
-    //     </Button>
-    //   </SideMenu>
-    // );

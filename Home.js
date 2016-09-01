@@ -43,8 +43,8 @@ module.exports = class Menu extends Component {
         <View style={styles.avatarContainer}>
           <View>
             <View>
-              <Text style={styles.name}>Glacier City Transit</Text>
-              <Text style={styles.name}>Shuttle Tracker</Text>
+              <Text style={styles.name}>Gorilla Bus</Text>
+
             </View>
 
             <Image
@@ -55,20 +55,23 @@ module.exports = class Menu extends Component {
 
         <TouchableHighlight onPress={() => {
           this.setAboutModal(true)
-        }}>
-          <Text>About</Text>
+        }}
+        >
+          <Text style={styles.item}>About</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={() => {
           this.setContactModal(true)
-        }}>
-          <Text>Contact</Text>
+        }}
+        >
+          <Text style={styles.item}> &#9742; Contact</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={() => {
           this.setHelpModal(true)
-        }}>
-          <Text>Help</Text>
+        }}
+        >
+          <Text style={styles.item}>Help</Text>
         </TouchableHighlight>
 
         <View style={{marginTop: 22}}>
@@ -153,7 +156,7 @@ module.exports = class Menu extends Component {
       flex: 1,
       width: window.width,
       height: window.height,
-      backgroundColor: 'gray',
+      backgroundColor: '#27303C',
       padding: 20,
     },
     avatarContainer: {
@@ -169,11 +172,16 @@ module.exports = class Menu extends Component {
     name: {
       marginBottom: 10,
       fontWeight: 'bold',
+      color: 'white',
       fontSize: 18,
+      fontFamily: 'Oswald-Regular'
     },
     item: {
       fontSize: 14,
       fontWeight: '300',
+      color: 'white',
       paddingTop: 5,
+      paddingBottom: 5,
+      fontFamily: 'Montserrat-Regular'
     },
   });

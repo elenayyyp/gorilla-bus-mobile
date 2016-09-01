@@ -4,7 +4,7 @@ import {
   View,
   StyleSheet,
   TouchableHighlight,
-  Image
+  Image,
 } from 'react-native';
 
 class SingleStop extends Component {
@@ -14,29 +14,38 @@ class SingleStop extends Component {
 
   render(){
     return(
-      <TouchableHighlight
-        onPress={this.props.youPress}
-        underlayColor={'#EEE'}
-      >
-        <View style={styles.box}>
+      <View>
+        <TouchableHighlight
+          onPress={this.props.youPress}
+          underlayColor={'#EEE'}>
 
-        <Text style={styles.heavy}>
-          &#x02720; Choose Your Stop
-        </Text>
-          <Text style={styles.normal}>
-            {this.props.selectedStop.name}
-          </Text>
-        </View>
-      </TouchableHighlight>
+          <View style={styles.box}>
+            <Text style={styles.heavy}>
+              &#x02720; Choose Your Stop
+            </Text>
+            <Text style={styles.normal}>
+              {this.props.selectedStop.name}
+            </Text>
+          </View>
+
+        </TouchableHighlight>
+          <TouchableHighlight style={styles.ref} onPress={() => this.props.handleRefresh()}>
+            <Image
+              source={require('./assets/refresh-button-icon-63755.png')} style={{width: 32, height: 32}}/>
+          </TouchableHighlight>
+
+      </View>
+
     )
   }
 }
 
 const styles = StyleSheet.create({
   box: {
+    alignSelf: 'flex-start',
     marginTop: 10,
     marginBottom: 10,
-    paddingRight: 70,
+    paddingRight: 140,
     paddingLeft: 70,
     alignItems: 'center',
     backgroundColor: 'white',
@@ -48,23 +57,23 @@ const styles = StyleSheet.create({
       width: 0
     }
   },
-  container: {
-    marginTop: 5,
-    marginBottom: 5,
-    alignItems: 'center',
-  },
   icon: {
     height: 28,
     width: 28
   },
   heavy: {
     fontFamily: 'Oswald-Regular',
-    fontSize: 16
+    fontSize: 16,
   },
   normal: {
     fontFamily: 'Montserrat-Regular',
     fontWeight: '100',
     fontSize: 13,
+  },
+  ref:{
+    right: -250,
+    top: -47,
+    padding: 0
   }
 });
 

@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
       width: 0
     },
     textAlign: 'center',
-    fontFamily: 'Oswald-Regular',
+    // fontFamily: 'Oswald-Regular',
     paddingRight: 130,
     paddingLeft: 130,
     paddingTop: 7,

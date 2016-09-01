@@ -63,7 +63,7 @@ class Map extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-       	<MapView style={{width: Dimensions.get('window').width - 40, height: 450}} region={this.state.mapRegion} annotations={this.state.annotations} />
+       	<MapView style={{width: Dimensions.get('window').width - 40, height: 410}} region={this.state.mapRegion} annotations={this.state.annotations} />
         <ShuttleInfo shuttleInfo={this.state.shuttleInfo} />
       </View>
     );

@@ -41,21 +41,22 @@ class ViewStops extends Component{
 const styles = StyleSheet.create({
   container: {
     zIndex: 3,
-    textAlign: 'center',
+    alignItems: 'center',
     position: "absolute",
     left: 75,
-    marginTop: 25,
+    marginTop: 15,
     marginBottom: 50,
     alignItems: 'center',
     borderRadius: 10,
-    padding: 15,
+    padding: 10,
     backgroundColor: 'rgba(255,255,255,0.8)'
   },
   textItems: {
     textAlign: 'center',
     lineHeight: 30,
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'normal',
+    fontFamily: 'Montserrat-Regular'
   },
 });
 

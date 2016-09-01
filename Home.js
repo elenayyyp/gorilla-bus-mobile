@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Profiles from './Profiles.js';
 import {
   Dimensions,
   StyleSheet,
@@ -86,6 +87,8 @@ module.exports = class Menu extends Component {
               </TouchableHighlight>
 
               <Text> About us</Text>
+              {Profiles.nateText()}
+              {Profiles.danText()}
 
             </View>
            </View>

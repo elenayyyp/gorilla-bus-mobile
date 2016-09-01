@@ -18,7 +18,7 @@ class SingleStop extends Component {
         onPress={this.props.youPress}
         underlayColor={'#EEE'}
       >
-        <View style={styles.container}>
+        <View style={styles.box}>
 
         <Text style={styles.heavy}>
           &#x02720; Choose Your Stop
@@ -33,22 +33,38 @@ class SingleStop extends Component {
 }
 
 const styles = StyleSheet.create({
+  box: {
+    marginTop: 10,
+    marginBottom: 10,
+    paddingRight: 70,
+    paddingLeft: 70,
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderBottomLeftRadius: 0,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    }
+  },
   container: {
-    marginTop: 30,
+    marginTop: 5,
     marginBottom: 5,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   icon: {
     height: 28,
     width: 28
   },
   heavy: {
-    fontWeight: 'bold',
-    fontSize: 18
+    fontFamily: 'Oswald-Regular',
+    fontSize: 16
   },
   normal: {
-    fontWeight: 'normal',
-    fontSize: 18,
+    fontFamily: 'Montserrat-Regular',
+    fontWeight: '100',
+    fontSize: 13,
   }
 });
 

@@ -9,8 +9,8 @@ import {
 import ShuttleInfo from './ShuttleInfo.js';
 
 class Map extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       mapRegion: {
         latitude: 60.965727,
@@ -37,11 +37,16 @@ class Map extends Component {
         headers: { "Content-Type" : "applications/json" }
       }
 
-      return fetch('http://localhost:3000/shuttles/', fetchSettings)
+      return fetch('https://serene-sierra-23458.herokuapp.com/shuttles/', fetchSettings)
         .then((response) => {
         return response.json().then(function(res){
-          console.log('mapview.pincolors:', MapView.PinColors)
-          const newLocs = [];
+          console.log("gfreertytrewqwert", derp.props);
+          const newLocs = [{
+            latitude: derp.props.everything.selectedStop.lat,
+            longitude: derp.props.everything.selectedStop.lng,
+            tintColor: "#000",
+            title: derp.props.everything.selectedStop.name
+          }]
           res.map((shuttle, idx) => {
             let color = ['#155f7c', '#ff3b30', '#c969e0'][idx];
             newLocs.push({
@@ -64,7 +69,7 @@ class Map extends Component {
     return (
       <View style={{flex: 1}}>
        	<MapView style={{width: Dimensions.get('window').width - 40, height: 410, top: -30}} region={this.state.mapRegion} annotations={this.state.annotations} />
-        <ShuttleInfo shuttleInfo={this.state.shuttleInfo} eta={this.props.eta}/>
+        <ShuttleInfo shuttleInfo={this.state.shuttleInfo} eta={this.props.everything.eta}/>
       </View>
     );
   }

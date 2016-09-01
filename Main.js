@@ -53,14 +53,13 @@ module.exports = class gorillabus extends Component {
 
   handleRefresh(){
     const App = this
-    axios.get('http://localhost:3000/shuttles/666').then(function(response){
+    axios.get('https://serene-sierra-23458.herokuapp.com/shuttles/666').then(function(response){
       App.setState({
         lat: response.data[0].lat,
         lng: response.data[0].lng,
         toSeward: response.data[0].toSeward
       })
     }).then(function(res){
-      console.log(App.state)
       if (App.state.lat !== 0){
         App.setState({
           eta: eta(App.state)
@@ -96,7 +95,6 @@ module.exports = class gorillabus extends Component {
   }
 
   goToStopsPage() {
-    console.log('t.p.n:', this.props.navigator)
     this.props.navigator.push({
       component: ViewStops,
     })
@@ -125,7 +123,7 @@ module.exports = class gorillabus extends Component {
             {this.state.stopsHidden ?
               <ViewStops stops={stops} changeStop={stop => this.handleChangeStop(stop)} style={styles.viewstop}/>
               : null}
-            <Map style={{flex: 1}} eta={this.state.eta}/>
+            <Map style={{flex: 1}} everything={this.state}/>
           </View>
           <Button style={styles.burger} onPress={() => this.toggle()}>
             <Image

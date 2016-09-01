@@ -13,7 +13,6 @@ let timeStopToSew = '';
 let estETA = '';
 
 const eta = function(data){
-  console.log("ETA log", data);
   Matrix.busSeward(data).then(function(res){
     if (res.data.rows[0].elements[0].status === 'OK'){
       distBusToSew = parseFloat(res.data.rows[0].elements[0].distance.text);
@@ -43,7 +42,7 @@ const eta = function(data){
   });
 
   Matrix.busTram(data).then(function(res){
-    console.log(res);
+
     if (res.data.rows[0].elements[0].status === 'OK') {
       distBusToTram = parseFloat(res.data.rows[0].elements[0].distance.text);
       timeBusToTram = parseFloat(res.data.rows[0].elements[0].duration.text);
@@ -65,7 +64,6 @@ const eta = function(data){
   if (distBusToSew < distStopToSew && data.toSeward === false) {
     estETA = timeStopToBus
   };
-  console.log("eta: ", estETA, " distToBus: ", distStopToBus);
   return estETA
 }
 

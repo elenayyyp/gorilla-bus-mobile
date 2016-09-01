@@ -44,7 +44,7 @@ class Map extends Component {
           const newLocs = [{
             latitude: derp.props.everything.selectedStop.lat,
             longitude: derp.props.everything.selectedStop.lng,
-            tintColor: "#000",
+            tintColor: "#4cd964",
             title: derp.props.everything.selectedStop.name
           }]
           res.map((shuttle, idx) => {

@@ -21,8 +21,7 @@ module.exports = class Menu extends Component {
     super(props);
     this.state = {
       aboutModal: false,
-      contactModal: false,
-      helpModal: false
+      contactModal: false
     };
   }
 
@@ -32,9 +31,7 @@ module.exports = class Menu extends Component {
   setContactModal(visible) {
     this.setState({contactModal: visible});
   }
-  setHelpModal(visible) {
-    this.setState({helpModal: visible});
-  }
+
 
   render() {
     return (
@@ -67,12 +64,6 @@ module.exports = class Menu extends Component {
           <Text style={styles.item}> &#9742; Contact</Text>
         </TouchableHighlight>
 
-        <TouchableHighlight onPress={() => {
-          this.setHelpModal(true)
-        }}
-        >
-          <Text style={styles.item}>Help</Text>
-        </TouchableHighlight>
 
         <View style={{marginTop: 22}}>
           <Modal
@@ -81,20 +72,21 @@ module.exports = class Menu extends Component {
             visible={this.state.aboutModal}
             onRequestClose={() => {alert("Modal has been closed.")}}
             >
-           <View style={{marginTop: 22}}>
-            <View>
-              <TouchableHighlight onPress={() => {
-                  this.setAboutModal(!this.state.aboutModal)
-                }}>
-                <Text> X </Text>
-              </TouchableHighlight>
-
-              <Text> About us</Text>
-              {Profiles.nateText()}
-              {Profiles.danText()}
-
-            </View>
-           </View>
+            <ScrollView style={styles.container}>
+              <View>
+                <TouchableHighlight
+                  underlayColor={'#EEE'}
+                  onPress={() => {
+                    this.setAboutModal(!this.state.aboutModal)
+                  }}>
+                  <Text style={styles.closeButton}> X </Text>
+                </TouchableHighlight>
+                  <Text style={styles.title}>About the Developers</Text>
+                  {Profiles.nateText()}
+                  {Profiles.danText()}
+                  {Profiles.elenaText()}
+              </View>
+            </ScrollView>
           </Modal>
         </View>
 
@@ -107,38 +99,15 @@ module.exports = class Menu extends Component {
             >
            <View style={{marginTop: 22}}>
             <View>
-              <TouchableHighlight onPress={() => {
+              <TouchableHighlight
+                underlayColor={'#EEE'}
+                onPress={() => {
                   this.setContactModal(!this.state.contactModal)
                 }}>
-                <Text> X </Text>
+                <Text style={styles.closeButton}> X </Text>
               </TouchableHighlight>
-
-              <Text>  Contact Us</Text>
-
-            </View>
-           </View>
-          </Modal>
-        </View>
-
-
-
-        <View style={{marginTop: 22}}>
-          <Modal
-            animationType={"slide"}
-            transparent={false}
-            visible={this.state.helpModal}
-            onRequestClose={() => {alert("Modal has been closed.")}}
-            >
-           <View style={{marginTop: 22}}>
-            <View>
-              <TouchableHighlight onPress={() => {
-                  this.setHelpModal(!this.state.helpModal)
-                }}>
-                <Text> X </Text>
-              </TouchableHighlight>
-
-              <Text>  Help</Text>
-
+              <Text style={styles.title}>Contact Info</Text>
+              {Profiles.contactText()}
             </View>
            </View>
           </Modal>
@@ -151,12 +120,12 @@ module.exports = class Menu extends Component {
   }
 };
 
- const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     menu: {
       flex: 1,
       width: window.width,
       height: window.height,
-      backgroundColor: '#27303C',
+      backgroundColor: 'gray',
       padding: 20,
     },
     avatarContainer: {
@@ -172,16 +141,30 @@ module.exports = class Menu extends Component {
     name: {
       marginBottom: 10,
       fontWeight: 'bold',
-      color: 'white',
       fontSize: 18,
-      fontFamily: 'Oswald-Regular'
     },
     item: {
       fontSize: 14,
       fontWeight: '300',
-      color: 'white',
       paddingTop: 5,
-      paddingBottom: 5,
-      fontFamily: 'Montserrat-Regular'
     },
+    closeButton: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      alignSelf: 'flex-end',
+      padding: 15
+    },
+    container: {
+      padding: 20
+    },
+    title: {
+      fontWeight: 'bold',
+      fontSize: 24,
+      alignSelf: 'center',
+      marginBottom: 15
+    },
+    option: {
+      fontWeight: 'bold',
+      fontSize: 24,
+    }
   });

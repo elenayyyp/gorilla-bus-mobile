@@ -49,3 +49,14 @@ No attribution required.
 ###Screen shots of mobile
 ![image1]
 (assets/gorilla_screen/sc1.png?raw=true)
+
+![image2]
+(assets/gorilla_screen/sc2.png?raw=true)
+![image3]
+(assets/gorilla_screen/sc3.png?raw=true)
+![image4]
+(assets/gorilla_screen/sc4.png?raw=true)
+![image5]
+(assets/gorilla_screen/sc5.png?raw=true)
+![image6]
+(assets/gorilla_screen/sc6.png?raw=true)

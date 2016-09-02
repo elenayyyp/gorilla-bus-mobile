@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
-import { AppRegistry, Navigator, StyleSheet } from 'react-native';
+import {
+  AppRegistry,
+  Navigator,
+  StyleSheet,
+  View,
+  TouchableHighlight,
+} from 'react-native';
 
 // import MainComponent from './Main';
 import gorillabus from './Main';

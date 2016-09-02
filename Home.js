@@ -61,7 +61,7 @@ module.exports = class Menu extends Component {
           this.setContactModal(true)
         }}
         >
-          <Text style={styles.item}> &#9742; Contact</Text>
+          <Text style={styles.item}>Contact</Text>
         </TouchableHighlight>
 
 
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
       flex: 1,
       width: window.width,
       height: window.height,
-      backgroundColor: 'gray',
+      backgroundColor: '#353749',
       padding: 20,
     },
     avatarContainer: {
@@ -142,11 +142,13 @@ const styles = StyleSheet.create({
       marginBottom: 10,
       fontWeight: 'bold',
       fontSize: 18,
+      color: 'white'
     },
     item: {
       fontSize: 14,
       fontWeight: '300',
       paddingTop: 5,
+      color: 'white'
     },
     closeButton: {
       fontSize: 20,

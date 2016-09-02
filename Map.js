@@ -48,13 +48,15 @@ class Map extends Component {
             title: derp.props.everything.selectedStop.name
           }]
           res.map((shuttle, idx) => {
-            let color = ['#155f7c', '#ff3b30', '#c969e0'][idx];
-            newLocs.push({
-              latitude: shuttle.lat,
-              longitude: shuttle.lng,
-              tintColor: color,
-              title: `Shuttle Num ${shuttle.shuttle_num}`
-            })
+            if (idx === 0){
+              let color = ['#155f7c', '#ff3b30', '#c969e0'][idx];
+              newLocs.push({
+                latitude: shuttle.lat,
+                longitude: shuttle.lng,
+                tintColor: color,
+                title: `Shuttle Num ${shuttle.shuttle_num}`
+              })
+            }
           })
           derp.setState({
             annotations: newLocs,

@@ -15,7 +15,7 @@ const Profiles = {
         <View style={styles.block}>
           <Text style={[styles.name, styles.text]}>Nate Smith</Text>
           <View style={styles.subBlock}>
-            <Text style={styles.text}>Making this app gave me a chance to learn the basics of React Native and solve a problem for Girdwood!
+            <Text style={styles.text}>Making this app gave me a chance to learn React Native and solve a problem for Girdwood. See you on the chairlift!
             </Text>
           </View>
 
@@ -55,9 +55,9 @@ const Profiles = {
     return(
       <View style={styles.dark}>
         <View style={styles.block}>
-          <Text style={[styles.name, styles.text]}>Dan Yochum</Text>
+          <Text style={[styles.name, styles.text]}>Daniel Yochum</Text>
           <View style={styles.subBlock}>
-            <Text style={styles.text}>Making this app gave me a chance to learn the basics of React Native and solve a problem for Girdwood!
+            <Text style={styles.text}>I love everything coding, but mostly games... The way is always forward. Send us your love (or hate).
             </Text>
           </View>
 
@@ -67,8 +67,8 @@ const Profiles = {
                 <Image style={styles.avatar} source={require('./assets/github.png')}/>
                 {' '} GitHub: {' '}
                 <Text style={[styles.link, styles.text]}
-                    onPress={() => Linking.openURL('https://github.com/chugachski')}>
-                    chugachski
+                    onPress={() => Linking.openURL('https://github.com/dannersy')}>
+                    dannersy
                 </Text>
               </Text>
             </View>
@@ -80,8 +80,8 @@ const Profiles = {
                 <Image style={styles.avatar} source={require('./assets/in.png')}/>
                 {' '} LinkedIn: {' '}
                 <Text style={{color: 'blue'}}
-                    onPress={() => Linking.openURL('https://www.linkedin.com/in/nathansmithcodes')}>
-                    nathansmithcodes
+                    onPress={() => Linking.openURL('https://www.linkedin.com/in/danielyochumjr')}>
+                    danielyochumjr
                 </Text>
               </Text>
             </View>
@@ -97,9 +97,9 @@ const Profiles = {
       return(
       <View>
         <View style={styles.block}>
-          <Text style={[styles.name, styles.text]}>Dan Yochum</Text>
+          <Text style={[styles.name, styles.text]}>Elena Peng</Text>
           <View style={styles.subBlock}>
-            <Text style={styles.text}>Making this app gave me a chance to learn the basics of React Native and solve a problem for Girdwood!
+            <Text style={styles.text}>Anything you can code, I can find a snippet on Google and code it better.
             </Text>
           </View>
 
@@ -109,26 +109,12 @@ const Profiles = {
                 <Image style={styles.avatar} source={require('./assets/github.png')}/>
                 {' '} GitHub: {' '}
                 <Text style={[styles.link, styles.text]}
-                    onPress={() => Linking.openURL('https://github.com/chugachski')}>
-                    chugachski
+                    onPress={() => Linking.openURL('https://github.com/elenayyyp')}>
+                    elenayyyp
                 </Text>
               </Text>
             </View>
           </View>
-
-          <View style={styles.subBlock}>
-            <View >
-              <Text style={styles.text}>
-                <Image style={styles.avatar} source={require('./assets/in.png')}/>
-                {' '} LinkedIn: {' '}
-                <Text style={{color: 'blue'}}
-                    onPress={() => Linking.openURL('https://www.linkedin.com/in/nathansmithcodes')}>
-                    nathansmithcodes
-                </Text>
-              </Text>
-            </View>
-          </View>
-
 
         </View>
       </View>
@@ -164,11 +150,11 @@ const Profiles = {
               <Text style={styles.text}>
               <Image style={styles.avatar} source={require('./assets/bug.png')}/>
             </Text>
-              <Text>{'\n'}Email:</Text>
+              <Text>{'\n'}Email:{' '}</Text>
               <Text style={styles.text}
                 style={{color: 'blue'}}
                 onPress={() => Linking.openURL('email:info@gorillabus.com')}>
-                gorillabus@gmail.com
+                gorillabusdev@gmail.com
               </Text>
             </Text>
           </View>

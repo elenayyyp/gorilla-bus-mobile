@@ -50,20 +50,29 @@ module.exports = class Menu extends Component {
           </View>
         </View>
 
-        <TouchableHighlight onPress={() => {
-          this.setAboutModal(true)
-        }}
-        >
-          <Text style={styles.item}>About</Text>
-        </TouchableHighlight>
+        <View>
+          <Image
+            style={styles.icon}
+            source={require('./assets/info.png')}/>
+          <TouchableHighlight onPress={() => {
+            this.setAboutModal(true)
+          }}
+          >
+            <Text style={styles.itemAbout}>About</Text>
+          </TouchableHighlight>
+        </View>
 
-        <TouchableHighlight onPress={() => {
-          this.setContactModal(true)
-        }}
-        >
-          <Text style={styles.item}>Contact</Text>
-        </TouchableHighlight>
-
+        <View>
+          <Image
+            style={styles.icon}
+            source={require('./assets/contact.png')}/>
+          <TouchableHighlight onPress={() => {
+            this.setContactModal(true)
+          }}
+          >
+            <Text style={styles.itemContact}>Contact</Text>
+          </TouchableHighlight>
+        </View>
 
         <View style={{marginTop: 22}}>
           <Modal
@@ -138,17 +147,32 @@ const styles = StyleSheet.create({
       borderRadius: 3,
       flex: 1,
     },
+    icon: {
+      height: 20,
+      width: 20,
+      top: 25
+    },
     name: {
       marginBottom: 10,
       fontWeight: 'bold',
       fontSize: 18,
       color: 'white'
     },
-    item: {
-      fontSize: 14,
+    itemAbout: {
+      fontSize: 18,
       fontWeight: '300',
       paddingTop: 5,
-      color: 'white'
+      color: 'white',
+      alignSelf: 'center',
+      left: -110
+    },
+    itemContact: {
+      fontSize: 18,
+      fontWeight: '300',
+      paddingTop: 5,
+      color: 'white',
+      alignSelf: 'center',
+      left: -104
     },
     closeButton: {
       fontSize: 20,

@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableHighlight,
   Image,
+  TouchableOpacity
 } from 'react-native';
 
 class SingleStop extends Component {
@@ -27,12 +28,15 @@ class SingleStop extends Component {
               {this.props.selectedStop.name}
             </Text>
           </View>
-
         </TouchableHighlight>
-          <TouchableHighlight style={styles.ref} onPress={() => this.props.handleRefresh()}>
+        
+          <TouchableOpacity
+            style={styles.ref}
+            onPress={() => this.props.handleRefresh()}
+            activeOpacity={1}>
             <Image
               source={require('./assets/refresh-button-icon-63755.png')} style={{width: 32, height: 32}}/>
-          </TouchableHighlight>
+          </TouchableOpacity>
 
       </View>
 

@@ -37,7 +37,7 @@ class Map extends Component {
         headers: { "Content-Type" : "applications/json" }
       }
 
-      return fetch('https://serene-sierra-23458.herokuapp.com/shuttles/', fetchSettings)
+      return fetch('https://serene-sierra-23458.herokuapp.com/shuttles/666', fetchSettings)
         .then((response) => {
         return response.json().then(function(res){
           console.log("gfreertytrewqwert", derp.props);
@@ -48,15 +48,15 @@ class Map extends Component {
             title: derp.props.everything.selectedStop.name
           }]
           res.map((shuttle, idx) => {
-            if (idx === 0){
-              let color = ['#155f7c', '#ff3b30', '#c969e0'][idx];
+            // if (idx === 0){
+              let color = ['#4cd964', '#c969e0', '#ff3b30'][idx];
               newLocs.push({
                 latitude: shuttle.lat,
                 longitude: shuttle.lng,
                 tintColor: color,
                 title: `Shuttle Num ${shuttle.shuttle_num}`
               })
-            }
+            // }
           })
           derp.setState({
             annotations: newLocs,

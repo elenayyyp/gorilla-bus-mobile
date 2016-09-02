@@ -53,7 +53,7 @@ module.exports = class gorillabus extends Component {
 
   handleRefresh(){
     const App = this
-    axios.get('https://serene-sierra-23458.herokuapp.com/shuttles/666').then(function(response){
+    axios.get('https://serene-sierra-23458.herokuapp.com/shuttles/').then(function(response){
       App.setState({
         lat: response.data[0].lat,
         lng: response.data[0].lng,

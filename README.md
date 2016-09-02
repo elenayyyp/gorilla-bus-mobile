@@ -44,3 +44,8 @@ No attribution required.
 Gorilla Icon:
 https://icons8.com/
 No attribution required.
+
+
+###Screen shots of mobile
+![image1]
+(assets/gorilla_screen/sc1.png?raw=true)

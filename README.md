@@ -30,7 +30,7 @@ One difficult challenge was development of distance and time logic, which requir
 - **Daniel Yochum**  •  GitHub: dannersy
 - **Nate Smith** •  GitHub: chugachski
 
-###Screen shots of mobile
+### Screen shots of mobile
 ![image1]
 (assets/gorilla_screen/sc1.png?raw=true)
 ![image2]

@@ -33,7 +33,6 @@ One difficult challenge was development of distance and time logic, which requir
 ###Screen shots of mobile
 ![image1]
 (assets/gorilla_screen/sc1.png?raw=true)
-
 ![image2]
 (assets/gorilla_screen/sc2.png?raw=true)
 ![image3]

@@ -4,11 +4,11 @@
 
 Gorilla Bus is a React Native focused app designed specifically for a transportation service in Girdwood, Alaska.
 
-The local government of Girdwood expressed interest in a shuttle tracker and we aimed to create it! The shuttle is open random pickups and additional stops, therefore it is frequently off schedule. Currently, the only way to find the exact location of the shuttle is to call the driver. What a pain! We designed the app to make things easier for passengers and drivers to pitch it to Glacier City Transit.
+The local government of Girdwood expressed interest in a shuttle tracker and we aimed to create it! The shuttle is open to random pickups and additional stops, therefore it is frequently off schedule. Currently, the only way to find the exact location of the shuttle is to call the driver. What a pain! We designed the app sepcifically for Glacier City Transit and to make everyday travel easier for passengers and drivers.
 
 ## Logic/Tech
 
-Our main priority is to view the current shuttle location with geolocation coordinates without map re-rendering. Estimated time of arrival is calculated using Google's Distance Matrix API using the route and position coordinates.
+Our main priority is to view the current shuttle location with geolocation coordinates without map re-rendering. Estimated time of arrival is calculated using the route and position coordinates with Google's Distance Matrix API.
 
 At regular intervals, current shuttle coordinates update the former coordinates in the Rails backend. This data originates from geolocation data on the shuttle in motion (or for prototype purposes, an array of coordinates along the route). The latest data is then pulled from the database and displayed on the user's phone.
 
